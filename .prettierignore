@@ -1,0 +1,31 @@
+# Ignore build output directory (if applicable)
+dist/
+build/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore lock files
+pnpm-lock.yaml
+
+# Ignore specific configuration files
+eslint.config.js
+postcss.config.js
+tailwind.config.js
+vite.config.js
+
+# Ignore environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ignore any JSON config files (optional)
+*.json
+
+# Ignore public assets (if you don't want Prettier to format files in public/)
+public/
+
+# Ignore the README file (optional, if you don't want it formatted)
+README.md
