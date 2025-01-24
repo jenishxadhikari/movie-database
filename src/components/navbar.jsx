@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-import { Menu } from 'lucide-react'
-import { X } from 'lucide-react'
 import { Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -23,14 +21,6 @@ export function Navbar() {
           Movie
           <span className="bg-primary p-0.5 text-white">Database</span>
         </Link>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={handleMenu}
-          className="md:hidden"
-        >
-          {isMenuOpen ? <X /> : <Menu />}
-        </Button>
         <nav className="flex items-center gap-6">
           <Link
             to={`/movies?id=/movie/top_rated&title=${encodeURIComponent('Top Rated')}`}
