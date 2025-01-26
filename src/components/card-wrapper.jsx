@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { Loader2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import {
@@ -28,8 +29,10 @@ export function CardWrapper({
   const [value, setValue] = useState('week')
   const [apiUrl, setApiUrl] = useState(API_URL)
   const [movies, setMovies] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    setIsLoading(true)
     async function fetchMovies() {
       try {
         const response = await fetch(apiUrl, {
@@ -44,6 +47,8 @@ export function CardWrapper({
         setMovies(data)
       } catch (error) {
         console.error(error)
+      } finally {
+        setIsLoading(false)
       }
     }
     fetchMovies()
@@ -53,6 +58,14 @@ export function CardWrapper({
     setValue(newValue)
     const updatedUrl = apiUrl.replace(/week|day/, newValue)
     setApiUrl(updatedUrl)
+  }
+
+  if (isLoading || !movies) {
+    return (
+      <main className="mx-auto flex max-w-screen-sm flex-1 flex-col items-center justify-center">
+        <Loader2 className="h-10 w-10 animate-spin text-blue-500" />
+      </main>
+    )
   }
 
   return (
