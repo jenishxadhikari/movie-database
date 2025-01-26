@@ -1,4 +1,4 @@
-import { CardWrapper } from '@/components/card-wrapper'
+import { CardWrapper } from '@/components/home/card-wrapper'
 
 export function TopRatedSection() {
   const title = 'Top Rated'
@@ -6,7 +6,7 @@ export function TopRatedSection() {
     <CardWrapper
       API_URL="https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
       title={title}
-      to={`/movies?id=/movie/top_rated&title=${encodeURIComponent(title)}`}
+      to={`/movies/top-rated`}
     />
   )
 }

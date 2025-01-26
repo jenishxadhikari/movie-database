@@ -59,7 +59,7 @@ export default function Watchlist() {
   return (
     <main className="flex flex-1 flex-col gap-10 py-5">
       <MaxWidthWrapper>
-        <h1 className="text-xl font-semibold">Your Watchlist</h1>
+        <h1 className="text-xl font-semibold">My Watchlist</h1>
       </MaxWidthWrapper>
       <section>
         <MaxWidthWrapper className="space-y-4">

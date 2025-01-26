@@ -9,11 +9,6 @@ import { Input } from '@/components/ui/input'
 import { MaxWidthWrapper } from '@/components/max-width-wrapper'
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  function handleMenu() {
-    setIsMenuOpen(!isMenuOpen)
-  }
   return (
     <header className="h-16 border-b-2">
       <MaxWidthWrapper className="flex items-center justify-between">
@@ -23,7 +18,7 @@ export function Navbar() {
         </Link>
         <nav className="flex items-center gap-6">
           <Link
-            to={`/movies?id=/movie/top_rated&title=${encodeURIComponent('Top Rated')}`}
+            to={`/all-movies`}
             className="text-sm font-semibold decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
           >
             All Movies
@@ -32,11 +27,11 @@ export function Navbar() {
             to="/watchlist"
             className="text-sm font-semibold decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
           >
-            Watchlist
+            My Watchlist
           </Link>
           <div className="ml-auto hidden items-center gap-2 md:flex md:w-[300px] lg:w-[400px]">
             <Input type="search" className="border-zinc-500" />
-            <Button size="icon">
+            <Button>
               <Search />
             </Button>
           </div>

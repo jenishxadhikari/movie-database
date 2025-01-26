@@ -1,4 +1,4 @@
-import { CardWrapper } from '@/components/card-wrapper'
+import { CardWrapper } from '@/components/home/card-wrapper'
 
 export function PopularSection() {
   const title = 'Popular Movies'
@@ -6,7 +6,7 @@ export function PopularSection() {
     <CardWrapper
       API_URL="https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
       title={title}
-      to={`/movies?id=/movie/popular&title=${encodeURIComponent(title)}`}
+      to={`/movies/popular`}
     />
   )
 }

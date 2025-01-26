@@ -1,12 +1,12 @@
-import { CardWrapper } from '@/components/card-wrapper'
+import { CardWrapper } from '@/components/home/card-wrapper'
 
 export function TrendingSection() {
   const title = 'Trending Movies'
   return (
     <CardWrapper
-      API_URL="https://api.themoviedb.org/3/trending/movie/week?language=en-US"
+      API_URL="https://api.themoviedb.org/3/trending/movie/week?language=en-US&page=1"
       title={title}
-      to={`/movies?id=/trending/movie/week&title=${encodeURIComponent(title)}`}
+      to={`/movies/trending`}
       select={true}
     />
   )
