@@ -5,7 +5,7 @@ import { Navbar } from '@/components/navbar'
 
 function App() {
   return (
-    <div className="min-h-screen bg-zinc-50 text-zinc-800">
+    <div className="flex min-h-screen flex-col bg-zinc-50 text-zinc-800">
       <Navbar />
       <Outlet />
       <Footer />

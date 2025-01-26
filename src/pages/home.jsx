@@ -10,7 +10,7 @@ import { MaxWidthWrapper } from '@/components/max-width-wrapper'
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center gap-8 py-5">
+    <main className="flex flex-1 flex-col items-center justify-center gap-8 py-5">
       <MaxWidthWrapper className="space-y-4">
         <h1 className="text-center text-xl font-bold md:text-2xl lg:text-3xl">
           Find Your Next Favorite Movie
