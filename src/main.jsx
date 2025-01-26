@@ -10,6 +10,7 @@ import Home from './pages/home.jsx'
 import Movie from './pages/movie.jsx'
 import Movies from './pages/movies.jsx'
 import PopularMovies from './pages/popular.jsx'
+import SearchMovies from './pages/search.jsx'
 import TopRatedMovies from './pages/top-rated.jsx'
 import TrendingMovies from './pages/trending.jsx'
 import Watchlist from './pages/watchlist.jsx'
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="popular" element={<PopularMovies />} />
             <Route path="top-rated" element={<TopRatedMovies />} />
             <Route path="trending" element={<TrendingMovies />} />
+            <Route path="search" element={<SearchMovies />} />
           </Route>
 
           <Route path="/watchlist" element={<Watchlist />} />

@@ -1,4 +1,7 @@
+import { useState } from 'react'
+
 import { Search } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -9,6 +12,12 @@ import { TrendingSection } from '@/components/home/trending-section'
 import { MaxWidthWrapper } from '@/components/max-width-wrapper'
 
 export default function Home() {
+  const [value, setValue] = useState('')
+  const navigate = useNavigate()
+
+  function handleSearch() {
+    navigate(`/movies/search?query=${value}`)
+  }
   return (
     <main className="flex flex-1 flex-col items-center justify-center gap-8 py-5">
       <MaxWidthWrapper className="space-y-4">
@@ -16,8 +25,13 @@ export default function Home() {
           Find Your Next Favorite Movie
         </h1>
         <div className="ml-auto flex max-w-[400px] items-center gap-2 md:hidden">
-          <Input type="search" className="border-zinc-500" />
-          <Button size="icon">
+          <Input
+            type="search"
+            className="border-zinc-500"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <Button size="icon" onClick={handleSearch}>
             <Search />
           </Button>
         </div>
