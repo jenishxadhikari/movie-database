@@ -24,9 +24,14 @@ export default function Movies() {
   const [searchParams] = useSearchParams()
   const currentPage = Number(searchParams.get('page')) || 1
   const query = searchParams.get('query')
+  console.log(query)
 
   function handlePageChange(page) {
-    navigate(`${location.pathname}?${query && `query=${query}&`}page=${page}`)
+    const url =
+      query !== null
+        ? `${location.pathname}?${query}&page=${page}`
+        : `${location.pathname}?page=${page}`
+    navigate(url)
   }
 
   function renderPaginationLink() {
