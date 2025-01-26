@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { Loader2 } from 'lucide-react'
+import { useSearchParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 import {
@@ -14,6 +15,9 @@ import {
 import { MaxWidthWrapper } from '@/components/max-width-wrapper'
 
 export default function PopularMovies() {
+  const [searchParams] = useSearchParams()
+  const page = Number(searchParams.get('page')) || 1
+
   const [isLoading, setIsLoading] = useState(true)
   const [movies, setMovies] = useState([])
 
@@ -22,7 +26,7 @@ export default function PopularMovies() {
     async function fetchMovies() {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1`,
+          `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`,
           {
             method: 'GET',
             headers: {
@@ -40,7 +44,7 @@ export default function PopularMovies() {
       }
     }
     fetchMovies()
-  }, [])
+  }, [page])
 
   if (isLoading || !movies) {
     return (

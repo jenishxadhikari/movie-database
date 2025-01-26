@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { Loader2 } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 import {
   Card,
@@ -20,12 +20,14 @@ import {
 import { MaxWidthWrapper } from '@/components/max-width-wrapper'
 
 export default function TrendingMovies() {
+  const [searchParams] = useSearchParams()
+  const page = Number(searchParams.get('page')) || 1
+
   const [value, setValue] = useState('week')
-  const [apiUrl, setApiUrl] = useState(
-    `https://api.themoviedb.org/3/trending/movie/week?language=en-US&page=1`
-  )
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+
+  const apiUrl = `https://api.themoviedb.org/3/trending/movie/${value}?language=en-US&page=${page}`
 
   useEffect(() => {
     setIsLoading(true)
@@ -47,12 +49,10 @@ export default function TrendingMovies() {
       }
     }
     fetchMovies()
-  }, [apiUrl])
+  }, [apiUrl, page])
 
   function handleValueChange(newValue) {
     setValue(newValue)
-    const updatedUrl = apiUrl.replace(/week|day/, newValue)
-    setApiUrl(updatedUrl)
   }
 
   if (isLoading || !movies) {
