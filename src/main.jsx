@@ -13,7 +13,7 @@ import PopularMovies from './pages/popular.jsx'
 import SearchMovies from './pages/search.jsx'
 import TopRatedMovies from './pages/top-rated.jsx'
 import TrendingMovies from './pages/trending.jsx'
-import Watchlist from './pages/watchlist.jsx'
+import WatchList from './pages/watchlist.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -31,8 +31,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="search" element={<SearchMovies />} />
           </Route>
 
-          <Route path="/watchlist" element={<Watchlist />} />
-
+          <Route path="watchlist" element={<WatchList />} />
           <Route path="/all-movies" element={<AllMovies />} />
         </Route>
       </Routes>

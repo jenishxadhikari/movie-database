@@ -19,8 +19,8 @@ export default function Home() {
     navigate(`/movies/search?query=${value}`)
   }
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-8 py-5">
-      <MaxWidthWrapper className="space-y-4">
+    <main className="flex-1 py-5 md:py-10">
+      <MaxWidthWrapper className="flex flex-col justify-center gap-8">
         <h1 className="text-center text-xl font-bold md:text-2xl lg:text-3xl">
           Find Your Next Favorite Movie
         </h1>
@@ -35,10 +35,12 @@ export default function Home() {
             <Search />
           </Button>
         </div>
+        <div className="space-y-8 md:space-y-16">
+          <TrendingSection />
+          <TopRatedSection />
+          <PopularSection />
+        </div>
       </MaxWidthWrapper>
-      <TrendingSection />
-      <TopRatedSection />
-      <PopularSection />
     </main>
   )
 }

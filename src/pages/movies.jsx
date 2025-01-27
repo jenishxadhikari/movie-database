@@ -17,6 +17,8 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination'
 
+import { MaxWidthWrapper } from '@/components/max-width-wrapper'
+
 export default function Movies() {
   const navigate = useNavigate()
   const location = useLocation()
@@ -48,8 +50,10 @@ export default function Movies() {
     ))
   }
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-10 py-5">
-      <Outlet />
+    <main className="flex flex-1 flex-col items-center justify-center gap-10 py-5 md:py-10">
+      <MaxWidthWrapper className="flex-1">
+        <Outlet />
+      </MaxWidthWrapper>
 
       <Pagination>
         <PaginationContent>
