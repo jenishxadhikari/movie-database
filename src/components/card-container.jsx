@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 
+import { PaginationContext } from '@/context/pagination-context'
 import { Loader2 } from 'lucide-react'
 
 import { CardWrapper } from '@/components/card-wrapper'
@@ -7,6 +9,7 @@ import { CardWrapper } from '@/components/card-wrapper'
 export function CardContainer({ apiUrl, home = false }) {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const { setTotalPages } = useContext(PaginationContext)
 
   useEffect(() => {
     setIsLoading(true)
@@ -20,6 +23,8 @@ export function CardContainer({ apiUrl, home = false }) {
           },
         })
         const body = await response.json()
+        setTotalPages(body.total_pages)
+
         const data = home ? body.results.splice(0, 6) : body.results
         setMovies(data)
       } catch (error) {

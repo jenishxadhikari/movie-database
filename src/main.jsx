@@ -9,6 +9,7 @@ import AllMovies from './pages/all-movies.jsx'
 import Home from './pages/home.jsx'
 import Movie from './pages/movie.jsx'
 import Movies from './pages/movies.jsx'
+import PageNotFound from './pages/page-not-found.jsx'
 import PopularMovies from './pages/popular.jsx'
 import SearchMovies from './pages/search.jsx'
 import TopRatedMovies from './pages/top-rated.jsx'
@@ -33,6 +34,8 @@ createRoot(document.getElementById('root')).render(
 
           <Route path="watchlist" element={<WatchList />} />
           <Route path="/all-movies" element={<AllMovies />} />
+
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
